@@ -1,0 +1,29 @@
+[
+	{
+		"id": 1,
+		"title": "Lápiz",
+		"description": "Lápis de grafito del número 2",
+		"price": 6,
+		"thumbnail": "url",
+		"code": "KHJD65K",
+		"stock": 8
+	},
+	{
+		"id": 2,
+		"title": "Papel",
+		"description": "Papel blanco",
+		"price": 1,
+		"thumbnail": "url",
+		"code": "JKHGD76",
+		"stock": 200
+	},
+	{
+		"id": 3,
+		"title": "Manzana !kg",
+		"description": "Manzana amarilla",
+		"price": 35,
+		"thumbnail": "url",
+		"code": "MFHGD89",
+		"stock": 50
+	}
+]
