@@ -1,0 +1,56 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"title": "Producto 1",
+			"description": "Descripcion del producto 1",
+			"code": "KJHFG678",
+			"price": 82,
+			"status": true,
+			"stock": 24,
+			"category": "categoria 1",
+			"thumbnails": []
+		},
+		{
+			"id": 2,
+			"title": "Producto 2",
+			"description": "Descripcion del producto 2",
+			"code": "LKHJBFV87",
+			"price": 42,
+			"status": true,
+			"stock": 155,
+			"category": "categoria 1",
+			"thumbnails": []
+		},
+		{
+			"id": 3,
+			"title": "Producto 3",
+			"description": "Descripcion del producto 3",
+			"code": "KJHSF78",
+			"price": 83,
+			"status": true,
+			"stock": 92,
+			"category": "categoria 2",
+			"thumbnails": []
+		}
+	],
+	"carts": [
+		{
+			"id": 1,
+			"products": [
+				{
+					"product": 1,
+					"quantity": 9
+				},
+				{
+					"product": 2,
+					"quantity": 3
+				},
+				{
+					"product": 3,
+					"quantity": 5
+				}
+			]
+		}
+	]
+}
