@@ -1,0 +1,21 @@
+{{> navbar }}
+
+<div class="w-full">
+    <h1 class="text-blue-400 px-1 text-3xl font-bold uppercase">Lista de productos</h1>
+    <div class="mt-3 grid grid-cols-4 gap-2">
+        {{#each productos}}
+            <div class="p-5 shadow-emerald-500 shadow-sm rounded-md flex flex-col gap-2">
+                <div>
+                    <p class="text-gray-500 text-sm"> {{this.code}} </p>
+                    <h3 class="text-violet-500 text-xl font-bold uppercase"> {{this.title}} </h3>
+                </div>
+                <div>
+                    <p class="text-gray-500 lowercase"> {{this.description}} </p>
+                    <p class="text-emerald-500 text-xl text-end font-bold mt-2"> ${{this.price}} </p>
+                </div>
+            </div>
+        {{else}}
+            <P class="text-gray-500 text-xl lowercase">No hay productos registrados</P>
+        {{/each}}
+    </div>
+</div>
