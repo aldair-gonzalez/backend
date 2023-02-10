@@ -8,6 +8,8 @@ import __dirname from './dirname.js'
 import RoutesIndex              from './routes/index.routes.js'
 import RoutesProducts           from './routes/products.routes.js'
 import RoutesCarts              from './routes/carts.routes.js'
+import RoutesMessages           from './routes/messages.routes.js'
+import RoutesRealTimeMessages   from './routes/realtimeMessages.routes.js'
 import RoutesRealTimeProducts   from './routes/realtimeproducts.routes.js'
 
 const app = express();
@@ -37,6 +39,8 @@ const connection = mongoose.connect('mongodb+srv://admin:12345@cluster1.glf5qjj.
 app.use(RoutesIndex)
 app.use('/api/products',     RoutesProducts)
 app.use('/api/carts',        RoutesCarts)
+app.use('/api/messages',     RoutesMessages)
+app.use('/chat',             RoutesRealTimeMessages)
 app.use('/realtimeproducts', RoutesRealTimeProducts)
 
 
