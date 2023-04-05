@@ -1,0 +1,23 @@
+[
+	{
+		"fullname": "Aldair González ",
+		"first_name": "Aldair González",
+		"last_name": "",
+		"email": "aldairgome97@gmail.com",
+		"password": null,
+		"cart": 1,
+		"role": "admin",
+		"_id": 1
+	},
+	{
+		"fullname": "Aldair Gonzalez",
+		"first_name": "Aldair",
+		"last_name": "Gonzalez",
+		"email": "aldair@gmail.com",
+		"age": "18",
+		"password": "$2b$10$SV9HIooeZmz2eTrCCTAZIupvqH/jVOBj0TBH5z/wwReDs6CKZn7IK",
+		"cart": 2,
+		"role": "usuario",
+		"_id": 2
+	}
+]
