@@ -25,6 +25,18 @@ Se profundizará sobre los roles de los usuarios, las autorizaciones y sobre la 
 
 Una vez finalizada la compra, el carrito asociado al usuario que compró deberá contener sólo los productos que no pudieron comprarse. Es decir, se filtran los que sí se compraron y se quedan aquellos que no tenían disponibilidad.
 
+## Inicio  de sesión
+- `ADMIN`:
+```
+  email: admin@gmail.com
+  password: 123
+```
+- `USUARIO`:
+```
+  email: aldair@gmail.com
+  password: 123
+```
+
 ## Estructura del Proyecto
 
 Dentro del proyecto encontrarás la siguiente estructura de directorios:
@@ -36,6 +48,8 @@ Dentro del proyecto encontrarás la siguiente estructura de directorios:
     └── controllers/
     │   └── ...
     └── dao/
+        └── db/
+        │   └── ...
         └── memory/
         │   └── ...
         └── models/
@@ -62,22 +76,22 @@ Dentro del proyecto encontrarás la siguiente estructura de directorios:
             └── ...
 ```
 
-- `src/config`:
-- `src/controllers`:
-- `src/dao`:
-- `src/dao/memory`:
-- `src/dao/models`:
-- `src/dao/mongo`:
-- `src/dao/patterns`:
-- `src/dao/services`:
-- `src/dao/services/repository`:
-- `src/middlewares`:
-- `src/public`:
-- `src/routes`:
-- `src/utils`:
-- `src/views`:
-- `src/views/layouts`:
-- `src/views/partials`:
+- `src/config`: Archivos de configuración
+- `src/controllers`: Controladores de las rutas
+- `src/dao`: Todo lo relacionado con datos (MEMORY, MONGO)
+- `src/dao/memory`: Métodos para guardar los datos en memoria (archivo.json)
+- `src/dao/models`: Estructura de los datos de MONGODB
+- `src/dao/mongo`: Métodos para guardar los datos en una base de datos mongo
+- `src/dao/patterns`: Diseño de los datos de la aplicación
+- `src/dao/services`: Servicios
+- `src/dao/services/repository`: Selección del dao a utilizar en el proyecto
+- `src/middlewares`: Middleware del inicio de sesión
+- `src/public`: Carpeta publica para las vistas
+- `src/routes`: Rutas de la API
+- `src/utils`: Archivos que se reutilizarán a lo largo del proyecto
+- `src/views`: Vistas de handlebars para renderizar la interfaz del usuario
+- `src/views/layouts`: Plantillas de handlebars
+- `src/views/partials`: Componentes de handlebars
 
 ## Instalación
 

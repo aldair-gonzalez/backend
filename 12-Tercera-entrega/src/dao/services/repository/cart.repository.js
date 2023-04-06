@@ -28,6 +28,11 @@ export class CartRepository {
     return result
   }
 
+  purchase (cid, user, obj) {
+    const result = this.dao.purchase(cid, user, obj)
+    return result
+  }
+
   productAdd (cid, pid) {
     const result = this.dao.productAdd(cid, pid)
     return result

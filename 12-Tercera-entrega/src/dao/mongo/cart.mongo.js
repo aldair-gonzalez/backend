@@ -4,6 +4,8 @@ import { ProductCart } from '../patterns/productCart.pattern.js'
 import { Cart } from '../patterns/cart.pattern.js'
 import { MONGOOSE_DB_COLLECTION_PRODUCTS } from '../../config/config.js'
 
+import { transporter } from '../../utils/nodemailer.js'
+
 class CartMongo {
   async getAll () {
     try {
@@ -20,6 +22,7 @@ class CartMongo {
       if (!result) return responseError(404, null, 'Cart not found')
       return responseData(200, result)
     } catch (error) {
+      console.log(error)
       return responseError(500, null, 'Internal Server Error')
     }
   }
@@ -63,6 +66,73 @@ class CartMongo {
       if (!(deletedCount > 0)) return responseError(202, null, 'Not deleted')
       return responseData(200, result)
     } catch (error) {
+      return responseError(500, null, 'Internal Server Error')
+    }
+  }
+
+  async purchase (cid, user, products) {
+    try {
+      const exist = await cartModel.findById(cid)
+      if (!exist) return responseError(404, null, 'Cart Not found')
+
+      exist.products = []
+      const result = await cartModel.updateOne({ _id: cid }, exist)
+      const { modifiedCount } = result
+      if (!modifiedCount > 0) return responseError(202, null, 'Not modified')
+      const handleProducts = []
+      products.forEach(e => {
+        const product = { product: e.product.title, price: e.product.price, code: e.product.code, quantity: e.quantity }
+        handleProducts.push(product)
+      })
+      let ticket = ''
+      let amount = 0
+      handleProducts.forEach(e => {
+        ticket += `
+          <tr class="fila">
+            <td style="
+              padding: 1em 2em;
+            "> ${e.code} </td>
+            <td style="
+              padding: 1em 2em;
+            "> ${e.product} </td>
+            <td style="
+              padding: 1em 2em;
+            "> $${e.price} </td>
+            <td style="
+              padding: 1em 2em;
+            "> ${e.quantity} </td>
+          </tr>
+        `
+        amount += e.price * e.quantity
+      })
+
+      transporter.sendMail({
+        from: 'Desafíos CODERHOUSE',
+        to: user.email,
+        subject: 'Tercer entrega del PF 👻',
+        text: `${user.fullname} gracias por tu compra. \n adjuntamos tu ticket de compra`,
+        html: `
+          <p>${user.fullname} gracias por tu compra.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>code</th>
+                <th>product</th>
+                <th>price</th>
+                <th>quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${ticket}
+            </tbody>
+          </table>
+          <p>Total: $${amount}</p>
+        `
+      })
+
+      return responseData(200, result)
+    } catch (error) {
+      console.log(error)
       return responseError(500, null, 'Internal Server Error')
     }
   }

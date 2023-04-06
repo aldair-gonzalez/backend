@@ -45,6 +45,17 @@ export const HandleDelete = async (req, res) => {
   }
 }
 
+export const HandlePurchase = async (req, res) => {
+  try {
+    const { cid } = req.params
+    const { user, products } = req.body
+    const result = await cartService.purchase(cid, user, products)
+    res.status(result.status).json(result)
+  } catch (error) {
+    res.sendStatus(500)
+  }
+}
+
 export const HandleProductGet = async (req, res) => {
   try {
     const { cid, pid } = req.params

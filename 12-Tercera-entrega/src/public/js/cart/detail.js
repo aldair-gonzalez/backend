@@ -57,15 +57,12 @@ import { api } from '../utils/api.js'
             .then(data => {
               const { status } = data
               if (status === 201) {
-                const obj = {
-                  products: []
-                }
-                fetch(urlCarts, {
-                  method: 'PUT',
+                fetch(`${urlCarts}/purchase`, {
+                  method: 'POST',
                   headers: {
                     'Content-Type': 'application/json'
                   },
-                  body: JSON.stringify(obj)
+                  body: JSON.stringify({ user, products })
                 })
                   .then(data => data.json())
                   .then(data => {

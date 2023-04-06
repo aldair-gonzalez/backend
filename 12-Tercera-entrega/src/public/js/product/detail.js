@@ -82,8 +82,6 @@ import { api } from '../utils/api.js'
       buttonAddToCart.addEventListener('click', e => {
         e.preventDefault()
         const idProduct = e.target.id
-
-        // console.log(product)
         fetch(`${apiCarts}/${idCart}`)
           .then(data => data.json())
           .then(data => {
